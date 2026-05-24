@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tractor Dealership Management System</title>
+    <title>Tractor Dealership Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-    <h1>Tractor Dealership Management System</h1>
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
 
-    <h3>Welcome Admin</h3>
-
-    <hr>
-
-    <ul>
-        <li>Customers</li>
-        <li>Tractors</li>
-        <li>Sales</li>
-        <li>Inventory</li>
-        <li>Services</li>
-        <li>Payments</li>
+    <ul class="menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Tractors</a></li>
+        <li><a href="#">Sales</a></li>
+        <li><a href="#">Services</a></li>
     </ul>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Customers</h3>
+        <h1>{{ customer_count }}</h1>
+        <p>Total customers</p>
+    </div>
+
+    <div class="card">
+        <h3>Tractors</h3>
+        <h1>{{ tractor_count }}</h1>
+        <p>Total tractors</p>
+    </div>
+
+    <div class="card">
+        <h3>Sales</h3>
+        <h1>{{ sales_count }}</h1>
+        <p>Total sales</p>
+    </div>
+
+    <div class="card">
+        <h3>Services</h3>
+        <h1>0</h1>
+        <p>Total services</p>
+    </div>
+
+</div>
 
 </body>
 </html>

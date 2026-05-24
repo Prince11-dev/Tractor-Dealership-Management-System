@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Add Customer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+    <h1>Add Customer</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="customer_name"
+            placeholder="Customer Name"
+            required>
+
+        <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            required>
+
+        <textarea
+            name="address"
+            placeholder="Address"
+            required></textarea>
+
+        <input
+            type="text"
+            name="village"
+            placeholder="Village"
+            required>
+
+        <button type="submit">
+            Add Customer
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

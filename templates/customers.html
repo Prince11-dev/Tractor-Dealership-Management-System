@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Customers</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+<h1>Customer List</h1>
+
+<a href="/customers/add/">
+<button>Add Customer</button>
+</a>
+
+<br><br>
+
+<table border="1" width="100%">
+
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Village</th>
+    <th>Action</th>
+</tr>
+
+{% for customer in customers %}
+
+<tr>
+    <td>{{customer.customer_name}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.village}}</td>
+
+    <td>
+<a href="/customers/update/{{customer.id}}">
+Edit
+</a>
+
+|
+
+<a href="/customers/delete/{{customer.id}}">
+Delete
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
