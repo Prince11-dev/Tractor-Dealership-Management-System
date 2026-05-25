@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<title>Update Sale</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+<h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+<h1>Update Sale</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<select name="customer">
+
+{% for customer in customers %}
+
+<option value="{{customer.id}}"
+{% if customer.id == sale.customer.id %}
+selected
+{% endif %}>
+{{customer.customer_name}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<select name="tractor">
+
+{% for tractor in tractors %}
+
+<option value="{{tractor.id}}"
+{% if tractor.id == sale.tractor.id %}
+selected
+{% endif %}>
+{{tractor.tractor_name}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<input
+type="date"
+name="sale_date"
+value="{{sale.sale_date|date:'Y-m-d'}}">
+
+<input
+type="number"
+name="amount"
+value="{{sale.amount}}">
+
+<button type="submit">
+Update Sale
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

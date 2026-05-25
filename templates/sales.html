@@ -29,6 +29,7 @@
     <th>Tractor</th>
     <th>Sale Date</th>
     <th>Amount</th>
+    <th>Action</th>
 </tr>
 
 {% for sale in sales %}
@@ -38,6 +39,21 @@
     <td>{{sale.tractor}}</td>
     <td>{{sale.sale_date}}</td>
     <td>{{sale.amount}}</td>
+
+    <td>
+
+        <a href="/sales/update/{{sale.id}}">
+        Edit
+        </a>
+
+        |
+
+        <a href="/sales/delete/{{sale.id}}">
+        Delete
+        </a>
+
+    </td>
+
 </tr>
 
 {% empty %}
