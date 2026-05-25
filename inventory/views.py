@@ -20,13 +20,24 @@ def add_tractor(request):
         company_name=request.POST['company_name']
         price=request.POST['price']
         horsepower=request.POST['horsepower']
+        stock_quantity=request.POST['stock_quantity']
+
+        stock_status='Available'
+
+        if int(stock_quantity) < 5:
+            stock_status='Low Stock'
+
+        if int(stock_quantity)==0:
+            stock_status='Out of Stock'
 
         Tractor.objects.create(
             tractor_name=tractor_name,
             model_no=model_no,
             company_name=company_name,
             price=price,
-            horsepower=horsepower
+            horsepower=horsepower,
+            stock_quantity=stock_quantity,
+            stock_status=stock_status
         )
 
         return redirect('tractors')

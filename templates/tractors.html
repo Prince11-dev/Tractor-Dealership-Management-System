@@ -2,7 +2,7 @@
 <html>
 <head>
     {% load static %}
-    <title>Tractors</title>
+    <title>Tractor List</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -14,59 +14,59 @@
 
 <div class="form-container">
 
-<h1>Tractor List</h1>
+    <h1>Tractor List</h1>
 
-<a href="/tractors/add/">
-    <button>Add Tractor</button>
-</a>
+    <div style="text-align:center;margin-bottom:20px;">
+        <a href="/tractors/add/" class="btn">
+            Add Tractor
+        </a>
+    </div>
 
-<br><br>
+    <div class="table-container">
 
-<table border="1" width="100%">
+        <table>
 
-<tr>
-    <th>Name</th>
-    <th>Model</th>
-    <th>Company</th>
-    <th>Price</th>
-    <th>HP</th>
-    <th>Action</th>
-</tr>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Company</th>
+                    <th>Price</th>
+                    <th>HP</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
 
-{% for tractor in tractors %}
+            <tbody>
 
-<tr>
-    <td>{{tractor.tractor_name}}</td>
-    <td>{{tractor.model_no}}</td>
-    <td>{{tractor.company_name}}</td>
-    <td>{{tractor.price}}</td>
-    <td>{{tractor.horsepower}}</td>
+            {% for tractor in tractors %}
+            <tr>
 
-    <td>
+                <td>{{ tractor.tractor_name }}</td>
+                <td>{{ tractor.model_no }}</td>
+                <td>{{ tractor.company_name }}</td>
+                <td>{{ tractor.price }}</td>
+                <td>{{ tractor.horsepower }}</td>
+                <td>{{ tractor.stock_quantity }}</td>
+                <td>{{ tractor.stock_status }}</td>
 
-<a href="/tractors/update/{{tractor.id}}">
-Edit
-</a>
+                <td>
+                    <a href="/tractors/update/{{ tractor.id }}">Edit</a>
+                    |
+                    <a href="/tractors/delete/{{ tractor.id }}">Delete</a>
+                </td>
 
-|
+            </tr>
 
-<a href="/tractors/delete/{{tractor.id}}">
-Delete
-</a>
+            {% endfor %}
 
-</td>
+            </tbody>
 
-</tr>
+        </table>
 
-{% empty %}
-
-<tr>
-<td colspan="6">No tractors found</td>
-</tr>
-
-{% endfor %}
-
-</table>
+    </div>
 
 </div>
 

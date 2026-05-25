@@ -13,40 +13,54 @@ nav{
 }
 
 .form-container{
-    width:400px;
-    background:white;
+    width:95%;
+    max-width:1000px;
     margin:50px auto;
+    background:white;
     padding:30px;
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-.form-container h1{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-input,
-textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border-radius:8px;
-    border:1px solid #ccc;
     box-sizing:border-box;
 }
 
-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#2c3e50;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
+h1{
+    text-align:center;
 }
 
-button:hover{
-    background:#1a252f;
+.btn{
+    display:inline-block;
+    background:#2c3e50;
+    color:white;
+    padding:12px 40px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#2c3e50;
+    color:white;
+}
+
+td{
+    word-wrap:break-word;
+}
+
+tr:nth-child(even){
+    background:#f5f5f5;
 }
