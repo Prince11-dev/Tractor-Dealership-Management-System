@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Add Tractor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+<h1>Add Tractor</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="tractor_name"
+placeholder="Tractor Name"
+required>
+
+<input
+type="text"
+name="model_no"
+placeholder="Model Number"
+required>
+
+<input
+type="text"
+name="company_name"
+placeholder="Company Name"
+required>
+
+<input
+type="number"
+name="price"
+placeholder="Price"
+required>
+
+<input
+type="number"
+name="horsepower"
+placeholder="Horsepower"
+required>
+
+<button type="submit">
+Add Tractor
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
