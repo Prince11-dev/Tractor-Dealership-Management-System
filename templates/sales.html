@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Sales List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+<h1>Sales List</h1>
+
+<a href="/sales/add/">
+    <button>Add Sale</button>
+</a>
+
+<br><br>
+
+<table border="1" width="100%">
+
+<tr>
+    <th>Customer</th>
+    <th>Tractor</th>
+    <th>Sale Date</th>
+    <th>Amount</th>
+</tr>
+
+{% for sale in sales %}
+
+<tr>
+    <td>{{sale.customer}}</td>
+    <td>{{sale.tractor}}</td>
+    <td>{{sale.sale_date}}</td>
+    <td>{{sale.amount}}</td>
+</tr>
+
+{% empty %}
+
+<tr>
+    <td colspan="4">No sales found</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Add Sale</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <h2>🚜 Tractor Dealership System</h2>
+</nav>
+
+<div class="form-container">
+
+<h1>Add Sale</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<select name="customer" required>
+
+<option value="">Select Customer</option>
+
+{% for customer in customers %}
+
+<option value="{{customer.id}}">
+{{customer.customer_name}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<select name="tractor" required>
+
+<option value="">Select Tractor</option>
+
+{% for tractor in tractors %}
+
+<option value="{{tractor.id}}">
+{{tractor.tractor_name}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<input
+type="date"
+name="sale_date"
+required>
+
+<input
+type="number"
+name="amount"
+placeholder="Amount"
+required>
+
+<button type="submit">
+Add Sale
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
